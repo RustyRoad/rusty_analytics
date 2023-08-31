@@ -125,7 +125,46 @@ pub struct Session {
 #[derive(Debug)]
 pub struct Conversion {
     converted: bool,
+    event_type: String,
     // other fields
+}
+
+/// ## Name: ConversionType
+/// ### Description: Enum to represent the type of conversion
+/// #### Variants:
+/// - Purchase
+/// - AddToCart
+/// - AddToWishlist
+/// - InitiateCheckout
+/// - ViewContent
+/// - Search
+/// - Contact
+/// - CustomizeProduct
+/// - Donate
+/// - FindLocation
+/// - Schedule
+/// - StartTrial
+/// - SubmitApplication
+/// - Subscribe
+/// - Lead
+/// - Other
+pub enum ConversionType {
+    Purchase,
+    AddToCart,
+    AddToWishlist,
+    InitiateCheckout,
+    ViewContent,
+    Search,
+    Contact,
+    CustomizeProduct,
+    Donate,
+    FindLocation,
+    Schedule,
+    StartTrial,
+    SubmitApplication,
+    Subscribe,
+    Lead,
+    Other
 }
 
 pub fn report_campaign_performance(
