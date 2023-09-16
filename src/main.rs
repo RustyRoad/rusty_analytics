@@ -1,12 +1,28 @@
 use std::{self, collections::HashMap};
 
 #[derive(Debug)]
-pub struct User {
+pub struct Visitor {
     age: Option<u8>, // age could be optional, as not all platforms/users might provide this information
     location: String,
     gender: Gender,
     profession: String,
     education_level: Education,
+    interests: Vec<String>,
+    email: String,
+    phone: String,
+    website: String,
+    facebook_id: String,
+    instagram_id: String,
+    twitter_id: String,
+    linkedin_id: String,
+    youtube_id: String,
+    snapchat_id: String,
+    tiktok_id: String,
+    pinterest_id: String,
+    reddit_id: String,
+    other_social_media_ids: HashMap<String, String>,
+    first_name: String,
+    last_name: String,
 }
 
 #[derive(Debug)]
@@ -125,7 +141,7 @@ pub struct Session {
 #[derive(Debug)]
 pub struct Conversion {
     converted: bool,
-    event_type: String,
+    conversion_type: ConversionType,
     // other fields
 }
 
@@ -148,6 +164,7 @@ pub struct Conversion {
 /// - Subscribe
 /// - Lead
 /// - Other
+#[derive(Debug)]
 pub enum ConversionType {
     Purchase,
     AddToCart,
@@ -164,7 +181,7 @@ pub enum ConversionType {
     SubmitApplication,
     Subscribe,
     Lead,
-    Other
+    Other,
 }
 
 pub fn report_campaign_performance(
@@ -194,11 +211,11 @@ pub fn conversion_rate(conversions: Vec<Conversion>) -> f64 {
     conversion_rate
 }
 
-pub fn segment_users_by_age(users: Vec<User>) -> HashMap<String, Vec<User>> {
-    // Segment users into groups based on demographic/behavior data
-    let mut user_segments: HashMap<String, Vec<User>> = HashMap::new();
-    for user in users {
-        let segment = match user.age {
+pub fn segment_visitors_by_age(visitors: Vec<Visitor>) -> HashMap<String, Vec<Visitor>> {
+    // Segment visitors into groups based on demographic/behavior data
+    let mut visitor_segments: HashMap<String, Vec<Visitor>> = HashMap::new();
+    for visitor in visitors {
+        let segment = match visitor.age {
             Some(age) => {
                 if age < 18 {
                     "Under 18"
@@ -216,17 +233,13 @@ pub fn segment_users_by_age(users: Vec<User>) -> HashMap<String, Vec<User>> {
             }
             None => "Unknown",
         };
-        let segment_users = user_segments
+        let segment_visitors = visitor_segments
             .entry(segment.to_string())
             .or_insert(Vec::new());
-        segment_users.push(user);
+        segment_visitors.push(visitor);
     }
-    user_segments
+    visitor_segments
 }
-
-
-
-
 
 fn main() {
     println!("Hello, world!");
