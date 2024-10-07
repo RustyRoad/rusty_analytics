@@ -4,6 +4,9 @@ version = "0.0.1-alpha.0.0.2"
 edition = "2021"
 license = "MIT"
 description = "A simple analytics library for Rust and the Rusty Road web framework"
+documentation = "https://docs.rs/rusty_analytics"
+homepage = "https://github.com/rustyroad/rusty_analytics"
+repository = "https://github.com/rustyroad/rusty_analytics"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html"
 
