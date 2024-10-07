@@ -14,4 +14,4 @@ repository = "https://github.com/rustyroad/rusty_analytics"
 
 [lib]
 name = "rusty_analytics"
-path = "src/lib.rs"
+path = "./src/lib.rs"
